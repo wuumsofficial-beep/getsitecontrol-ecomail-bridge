@@ -6,9 +6,10 @@ export default async function handler(req, res) {
   try {
     const { email, first_name, last_name, surname } = req.body;
 
-    if (!email) {
-      console.error('Missing email in payload:', req.body);
-      return res.status(400).json({ error: 'Missing required field: email' });
+    if (!email || !email.trim()) {
+      // Getsitecontrol connectivity test sends empty email — return 200 to pass the test
+      console.log('No email provided (connectivity test), skipping.');
+      return res.status(200).json({ success: true, skipped: 'no email provided' });
     }
 
     const name = first_name || req.body.name || '';
