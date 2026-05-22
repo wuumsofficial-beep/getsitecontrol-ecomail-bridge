@@ -36,6 +36,7 @@ export default async function handler(req, res) {
             email: email.trim().toLowerCase(),
             name: name.trim(),
             surname: resolvedSurname.trim(),
+            tags: ['10% Prvý nákup'],
           },
           skip_confirmation: true,
           update_existing: true,
