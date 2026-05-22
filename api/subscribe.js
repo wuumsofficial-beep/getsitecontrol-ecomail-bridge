@@ -31,9 +31,11 @@ export default async function handler(req, res) {
           'key': ECOMAIL_API_KEY,
         },
         body: JSON.stringify({
-          email: email.trim().toLowerCase(),
-          name: name.trim(),
-          surname: resolvedSurname.trim(),
+          subscriber_data: {
+            email: email.trim().toLowerCase(),
+            name: name.trim(),
+            surname: resolvedSurname.trim(),
+          },
           skip_confirmation: true,
           update_existing: true,
           trigger_autoresponders: true,
