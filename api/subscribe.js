@@ -37,6 +37,7 @@ export default async function handler(req, res) {
           skip_confirmation: true,
           update_existing: true,
           trigger_autoresponders: true,
+          resubscribe: true,
         }),
       }
     );
